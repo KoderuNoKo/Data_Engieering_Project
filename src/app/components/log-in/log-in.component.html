@@ -1,0 +1,17 @@
+<div class="login-container">
+  <h1>Stock Analysis Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" required />
+
+    <button type="submit" class="login-button" [disabled]="!loginForm.valid">
+      Log In
+    </button>
+    <button type="button" class="signup-button" (click)="onSignUp()">
+      or Sign Up
+    </button>
+  </form>
+</div>

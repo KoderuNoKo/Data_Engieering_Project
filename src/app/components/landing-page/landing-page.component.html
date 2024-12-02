@@ -1,0 +1,97 @@
+<div class="container">
+  <aside class="sidebar">
+    <h2>Watchlist</h2>
+    <ul id="watchlist">
+      <li *ngFor="let stock of watchlist" (click)="selectStock(stock)">
+        {{ stock.symbol }}
+        <span
+          class="stock-status"
+          [ngClass]="{ up: stock.change > 0, down: stock.change < 0 }"
+        ></span>
+      </li>
+    </ul>
+    <button class="button" (click)="addStock()">Add Stock</button>
+    <div class="user-info">
+      <button class="button" (click)="logout()">Logout</button>
+      <span>{{ username }}</span>
+    </div>
+  </aside>
+  <main class="main-content">
+    <header class="header">
+      <h1>Stock Analysis</h1>
+      <input
+        type="text"
+        placeholder="Search stocks..."
+        id="searchInput"
+        (input)="searchStocks($event)"
+      />
+    </header>
+    <div class="chart-container">
+      <h2>{{ selectedStock.symbol }}</h2>
+      <div class="chart-placeholder">Stock chart placeholder</div>
+      <div>
+        <select id="timeframe" [(ngModel)]="selectedTimeframe">
+          <option value="1d">1 Day</option>
+          <option value="1w">1 Week</option>
+          <option value="1m">1 Month</option>
+          <option value="1y">1 Year</option>
+        </select>
+        <button class="button" (click)="toggleIndicator('SMA')">SMA</button>
+        <button class="button" (click)="toggleIndicator('EMA')">EMA</button>
+        <button class="button" (click)="toggleIndicator('MACD')">MACD</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Stock Information</h2>
+      <dl id="stockInfo">
+        <ng-container *ngFor="let item of stockData | keyvalue">
+          <dt>{{ item.key | titlecase }}</dt>
+          <dd>{{ item.value }}</dd>
+        </ng-container>
+      </dl>
+    </div>
+    <div class="card">
+      <h2>Technical Indicators</h2>
+      <div class="tabs">
+        <div
+          class="tab"
+          [ngClass]="{ active: activeTab === 'momentum' }"
+          (click)="showTab('momentum')"
+        >
+          Momentum
+        </div>
+        <div
+          class="tab"
+          [ngClass]="{ active: activeTab === 'trend' }"
+          (click)="showTab('trend')"
+        >
+          Trend
+        </div>
+        <div
+          class="tab"
+          [ngClass]="{ active: activeTab === 'volatility' }"
+          (click)="showTab('volatility')"
+        >
+          Volatility
+        </div>
+      </div>
+      <div [ngSwitch]="activeTab">
+        <ul *ngSwitchCase="'momentum'">
+          <li *ngFor="let indicator of technicalIndicators.momentum">
+            {{ indicator.name }}: {{ indicator.value }}
+          </li>
+        </ul>
+        <ul *ngSwitchCase="'trend'">
+          <li *ngFor="let indicator of technicalIndicators.trend">
+            {{ indicator.name }}: {{ indicator.value }}
+          </li>
+        </ul>
+        <ul *ngSwitchCase="'volatility'">
+          <li *ngFor="let indicator of technicalIndicators.volatility">
+            {{ indicator.name }}: {{ indicator.value }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
