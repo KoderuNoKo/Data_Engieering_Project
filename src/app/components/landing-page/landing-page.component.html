@@ -11,6 +11,7 @@
       </li>
     </ul>
     <button class="button" (click)="addStock()">Add Stock</button>
+    <button class="button" (click)="goToTest()">Test</button>
     <div class="user-info">
       <button class="button" (click)="logout()">Logout</button>
       <span>{{ username }}</span>
@@ -30,12 +31,27 @@
       <h2>{{ selectedStock.symbol }}</h2>
       <div class="chart-placeholder">Stock chart placeholder</div>
       <div>
-        <select id="timeframe" [(ngModel)]="selectedTimeframe">
+        <!--<select id="timeframe" [(ngModel)]="selectedTimeframe">
           <option value="1d">1 Day</option>
           <option value="1w">1 Week</option>
           <option value="1m">1 Month</option>
           <option value="1y">1 Year</option>
-        </select>
+        </select>-->
+        <label for="startDate">Start Date:</label>
+        <input
+          type="date"
+          id="startDate"
+          [(ngModel)]="startDate"
+          (change)="updateChart()"
+        />
+
+        <label for="endDate">End Date:</label>
+        <input
+          type="date"
+          id="endDate"
+          [(ngModel)]="endDate"
+          (change)="updateChart()"
+        />
         <button class="button" (click)="toggleIndicator('SMA')">SMA</button>
         <button class="button" (click)="toggleIndicator('EMA')">EMA</button>
         <button class="button" (click)="toggleIndicator('MACD')">MACD</button>

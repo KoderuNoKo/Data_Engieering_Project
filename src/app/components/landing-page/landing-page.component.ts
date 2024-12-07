@@ -34,6 +34,8 @@ export class LandingPageComponent implements OnInit {
   user: User | null = null;
   private authService: AuthService; // Thêm dòng này
   username: string = ''; // Khai báo thuộc tính username
+  startDate: string = ''; // Thêm thuộc tính cho ngày bắt đầu
+  endDate: string = '';   // Thêm thuộc tính cho ngày kết thúc
 
   constructor(authService: AuthService, private router: Router) { // Thêm constructor
     this.authService = authService;
@@ -95,6 +97,20 @@ export class LandingPageComponent implements OnInit {
 
   addStock() {
     alert('Add stock functionality would be implemented here');
+  }
+
+  goToTest() {
+    this.router.navigate(['/test']);
+  }
+
+  updateChart() {
+    if (this.startDate && this.endDate) {
+      // Logic để cập nhật biểu đồ dựa trên startDate và endDate
+      console.log(`Updating chart from ${this.startDate} to ${this.endDate}`);
+      // Thêm logic xử lý dữ liệu và cập nhật biểu đồ ở đây
+    } else {
+      console.warn('Please select both start and end dates.');
+    }
   }
 
   toggleIndicator(indicator: string) {
