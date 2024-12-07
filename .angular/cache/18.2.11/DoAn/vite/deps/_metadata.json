@@ -1,55 +1,55 @@
 {
-  "hash": "99e466e0",
-  "configHash": "1714be30",
+  "hash": "43c5a8e6",
+  "configHash": "30c00572",
   "lockfileHash": "f2851a56",
-  "browserHash": "6654edc6",
+  "browserHash": "d7933f67",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "5cec393a",
+      "fileHash": "c7351991",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "12292e89",
+      "fileHash": "0c4c4ac1",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "36ba89af",
+      "fileHash": "5ca3bede",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "7897cc8b",
+      "fileHash": "c8ae7d6b",
       "needsInterop": false
     },
     "@angular/platform-browser/animations": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
       "file": "@angular_platform-browser_animations.js",
-      "fileHash": "77323db9",
+      "fileHash": "140a2037",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "b53fecd4",
+      "fileHash": "c63fbd69",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-KNDWKCRI": {
-      "file": "chunk-KNDWKCRI.js"
+    "chunk-7LO2EKR6": {
+      "file": "chunk-7LO2EKR6.js"
     },
-    "chunk-ZLWQD4XV": {
-      "file": "chunk-ZLWQD4XV.js"
+    "chunk-F6THYKI5": {
+      "file": "chunk-F6THYKI5.js"
     },
-    "chunk-PSGA3BG2": {
-      "file": "chunk-PSGA3BG2.js"
+    "chunk-IPOT5YR3": {
+      "file": "chunk-IPOT5YR3.js"
     }
   }
 }
