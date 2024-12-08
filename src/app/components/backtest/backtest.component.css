@@ -1,0 +1,240 @@
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #ff6600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #ff6600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    color: #cccccc;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .section {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    color: #ff6600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    color: #cccccc;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    border-radius: 4px;
+    color: #ffffff;
+  }
+  
+  .search-button {
+    padding: 0.5rem 1rem;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #ff8533;
+  }
+  
+  .calendar {
+    background-color: #3d3d3d;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .calendar-header button {
+    background: none;
+    border: none;
+    color: #ff6600;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .weekday {
+    color: #888888;
+    font-size: 0.9rem;
+  }
+  
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .day:hover {
+    background-color: #4d4d4d;
+  }
+  
+  .today {
+    background-color: #ff6600;
+    color: white;
+  }
+  
+  .primary-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem 0;
+  }
+  
+  .primary-button:hover {
+    background-color: #ff8533;
+  }
+  
+  .forward-test {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #4d4d4d;
+  }
+  
+  .forward-test h3 {
+    color: #ff6600;
+    margin-bottom: 1rem;
+  }
+  
+  .forward-test p {
+    color: #cccccc;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .strategy-details {
+    background-color: #3d3d3d;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  
+  .strategy-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .strategy-item h4 {
+    color: #ff6600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .period-settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .period-input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 4px;
+    color: #ffffff;
+  }
+  
+  .risk-management {
+    margin-top: 1.5rem;
+  }
+  
+  .risk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .risk-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .risk-value {
+    width: 80px;
+    padding: 0.5rem;
+    background-color: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 4px;
+    color: #ffffff;
+  }
+  
+  .percentage {
+    color: #cccccc;
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+    
+    .period-settings {
+      grid-template-columns: 1fr;
+    }
+  }

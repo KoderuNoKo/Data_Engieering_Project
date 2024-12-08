@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="header">
+    <h1>Let's test your strategy!</h1>
+    <p class="subtitle">Backtest</p>
+    <p class="description">
+      See how your trade strategy would have performed with past stock data
+    </p>
+  </div>
+
+  <div class="content">
+    <!-- Market Section -->
+    <div class="section market-section">
+      <h2>Market</h2>
+      <p class="section-subtitle">Choose a market for the test</p>
+
+      <div class="search-container">
+        <input
+          type="text"
+          [(ngModel)]="marketSearch"
+          placeholder="Search"
+          class="search-input"
+        />
+        <button (click)="searchMarket()" class="search-button">Search</button>
+      </div>
+
+      <div class="date-picker">
+        <div class="date-range">
+          <div class="date-input">
+            <label>Start</label>
+            <div class="calendar">
+              <div class="calendar-header">
+                <button (click)="previousMonth()">&lt;</button>
+                <span>{{ currentMonth | date : "MMMM yyyy" }}</span>
+                <button (click)="nextMonth()">&gt;</button>
+              </div>
+              <div class="weekdays">
+                <div *ngFor="let day of weekDays" class="weekday">
+                  {{ day }}
+                </div>
+              </div>
+              <div class="days">
+                <div
+                  *ngFor="let day of calendarDays"
+                  class="day"
+                  [class.today]="isToday(day)"
+                  (click)="selectDate(day)"
+                >
+                  {{ day.getDate() }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button (click)="runTest()" class="primary-button">Run test</button>
+
+      <div class="forward-test">
+        <h3>Or play it real with Forward Test!</h3>
+        <p>
+          Forward testing is where you simulate your strategy in real time,
+          making trades and tracking performance—without using real money. It's
+          a great way to see how your strategy would perform in live market
+          conditions.
+        </p>
+        <button (click)="startForwardTest()" class="primary-button">
+          Start test
+        </button>
+      </div>
+    </div>
+
+    <!-- Strategy Section -->
+    <div class="section strategy-section">
+      <h2>Strategy</h2>
+      <p class="section-subtitle">Choose your strategy</p>
+
+      <div class="search-container">
+        <input
+          type="text"
+          [(ngModel)]="strategySearch"
+          placeholder="Search"
+          class="search-input"
+        />
+        <button (click)="searchStrategy()" class="search-button">Search</button>
+      </div>
+
+      <div class="strategy-details">
+        <div class="strategy-item">
+          <h4>Entry condition</h4>
+          <p>{{ selectedStrategy.entryCondition }}</p>
+        </div>
+
+        <div class="period-settings">
+          <div class="period">
+            <label>Short period</label>
+            <input
+              type="number"
+              [(ngModel)]="selectedStrategy.shortPeriod"
+              class="period-input"
+            />
+          </div>
+          <div class="period">
+            <label>Long period</label>
+            <input
+              type="number"
+              [(ngModel)]="selectedStrategy.longPeriod"
+              class="period-input"
+            />
+          </div>
+        </div>
+
+        <div class="strategy-item">
+          <h4>Exit condition</h4>
+          <!-- Add exit condition content -->
+        </div>
+
+        <div class="risk-management">
+          <h4>Risk Management</h4>
+          <div class="risk-item">
+            <label>Stop loss</label>
+            <div class="risk-input">
+              <input
+                type="number"
+                [(ngModel)]="selectedStrategy.stopLoss"
+                class="risk-value"
+              />
+              <span class="percentage">%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
