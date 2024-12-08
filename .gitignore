@@ -1,0 +1,18 @@
+# OS files
+Thumbs.db
+
+# Node.js
+node_modules/
+
+# back
+back/api_key.txt
+back/stock_support/
+
+# misc
+/build/
+dist/
+*.log
+.vscode/
+*.tmp
+*.pyc
+.env
