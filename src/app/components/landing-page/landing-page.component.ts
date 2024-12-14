@@ -5,6 +5,10 @@ import { AuthService } from '../../auth.service';
 import { User } from '../../auth.service';
 import { Router } from '@angular/router';
 
+import { StockService } from '../../account.service';
+import { response } from 'express';
+import { HttpClientModule } from '@angular/common/http';
+
 interface Stock {
   symbol: string;
   change: number;
@@ -26,9 +30,10 @@ interface StockData {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css'],
+  providers: [StockService]
 })
 export class LandingPageComponent implements OnInit {
   user: User | null = null;
@@ -37,7 +42,7 @@ export class LandingPageComponent implements OnInit {
   startDate: string = ''; // Thêm thuộc tính cho ngày bắt đầu
   endDate: string = '';   // Thêm thuộc tính cho ngày kết thúc
 
-  constructor(authService: AuthService, private router: Router) { // Thêm constructor
+  constructor(authService: AuthService, private router: Router, private stockService: StockService) { // Thêm constructor
     this.authService = authService;
     const user = this.authService.getUser();
     if (user) {
@@ -55,6 +60,8 @@ export class LandingPageComponent implements OnInit {
   ];
 
   selectedStock: Stock = this.watchlist[0];
+  indicators: string[] = [];
+  chartImage: string | null = null;
 
   stockData = {
     symbol: 'AAPL',
@@ -105,9 +112,16 @@ export class LandingPageComponent implements OnInit {
 
   updateChart() {
     if (this.startDate && this.endDate) {
-      // Logic để cập nhật biểu đồ dựa trên startDate và endDate
-      console.log(`Updating chart from ${this.startDate} to ${this.endDate}`);
-      // Thêm logic xử lý dữ liệu và cập nhật biểu đồ ở đây
+      this.stockService
+        .plotCandleStick(this.selectedStock.symbol, this.startDate, this.endDate, this.indicators)
+        .subscribe(
+          (response) => {
+            this.chartImage = `data:image/png;base64,${response.image}`;
+          },
+          (error) => {
+            console.error('Error fetching candlestick chart: ', error);
+          }
+        );
     } else {
       console.warn('Please select both start and end dates.');
     }

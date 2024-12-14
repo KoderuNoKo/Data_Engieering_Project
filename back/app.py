@@ -4,6 +4,8 @@ from data import Stock, Indicators
 from visualization import Graph
 import io
 import base64
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 
