@@ -1,56 +1,108 @@
-.container {
+:host {
     display: flex;
+    flex-direction: column;
+    width: 100vw;
     height: 100vh;
+    background-color: rgb(21,25,36);
 }
-.sidebar {
-    width: 10rem;
-    background-color: var(--bg-medium);
-    border-right: 1px solid var(--bg-light);
-    padding: 20px;
-    position: relative;
-}
-.logout-icon {
-    width: 20px;
-}
-.user-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid var(--bg-light);
-    bottom: 1rem;
-    position: fixed;
-}
-.main-content {
-    flex: 1;
-    overflow-y: auto;
-}
+
 .header {
-    background-color: var(--bg-medium);
-    border-bottom: 1px solid var(--bg-light);
+    background-color: rgb(21,25,36);
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     height: 3rem;
+    color: white;
+    width: 100%;
 }
-.card {
-    background-color: var(--bg-medium);
+
+.stock {
+    color: white;
+}
+
+.analysis {
+    color: rgb(38,143,229);
+}
+
+nav{
+    margin-left: 2.5rem;
+    display: flex;
+    gap: 2rem;
+}
+
+nav .nav:hover {
+    color: rgb(14,165,233);
+    border: 2px solid rgb(14,165,233);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 3px 7px;
+}
+
+.nav {
+    background-color: rgb(21,25,36);
+    color: rgb(203,213,225);
+    border: none;
+    font-size: 1.2rem;
+}
+
+.current {
+    background-color: rgb(21,25,36);
+    color: rgb(14,165,233);
+    border: 2px solid rgb(14,165,233);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    padding: 3px 7px;
+}
+
+header input{
+    margin-left: 6rem;
+    width: 20%;
+    height: 1rem;
+}
+
+  .main-content {
+    margin-top: 1rem;
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+  }
+
+  aside {
+    width: 10%;
+    background-color: rgb(29,40,58);
+    border-right: 1px solid var(--bg-light, #ccc);
+    padding: 20px;
+    height: 90%;
+  }
+
+#logout{
+    margin-top: 28rem;
+    background-color: #FF5252;
+}
+
+  .chart-container {
+    width: 80%;
+    background-color: rgb(29,40,58);
+    border: 1px solid var(--bg-light, #ccc);
+    border-radius: 4px;
+    padding: 20px;
+    height: 90%;
+  }
+
+  article {
+    width: 20%;
+}
+
+  .card {
+    background-color: rgb(29,40,58);
     border: 1px solid var(--bg-light);
     border-radius: 4px;
     margin: 20px;
+    margin-top: 0;
     padding: 20px;
 }
-.chart-container {
-    position: sticky;
-    top: 1rem;
-    background-color: var(--bg-medium);
-    border: 1px solid var(--bg-light);
-    border-radius: 4px;
-    margin: 20px;
-    padding: 20px;
-}
+
 input[type="date"] {
     border: 1px solid #ccc; /* Đường viền */
     border-radius: 4px; /* Bo góc */
@@ -66,18 +118,19 @@ input[type="date"]:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng đổ bóng khi focus */
 }
 .chart-placeholder {
-    height: 300px;
+    height: 80%;
     background-color: var(--bg-light);
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
     color: var(--text-dim);
+    margin-bottom: 2rem;
 }
 .button {
-    background-color: var(--accent);
+    background-color: rgb(181,224,253);
     border: none;
-    color: var(--text-light);
+    color: black;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -89,7 +142,7 @@ input[type="date"]:focus {
     transition: background-color 0.3s;
 }
 .button:hover {
-    background-color: var(--accent-hover);
+    background-color: rgba(157, 198, 225, 0.732);
 }
 .tabs {
     display: flex;
@@ -101,7 +154,7 @@ input[type="date"]:focus {
     transition: border-color 0.3s;
 }
 .tab.active {
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 2px solid white
 }
 .tab-content {
     display: none;
@@ -114,7 +167,7 @@ input, select {
     border: 1px solid var(--bg-light);
     color: var(--text-light);
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 #watchlist {
     list-style-type: none;

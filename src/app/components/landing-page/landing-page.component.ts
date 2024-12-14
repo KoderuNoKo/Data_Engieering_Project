@@ -127,6 +127,18 @@ export class LandingPageComponent implements OnInit {
     // Implement search functionality here
   }
 
+  toLandingPage() {
+    this.router.navigate(['/homepage'])
+  }
+
+  toTest() {
+    this.router.navigate(['/test'])
+  }
+
+  toBackTest(){
+    this.router.navigate(['/backtest'])
+  }
+
   logout() {
     // Logic để đăng xuất người dùng
     this.authService.setUser({ username: '', password: '' });
