@@ -1,0 +1,117 @@
+<header class="header">
+  <h1>
+    <span class="stock">Stock </span>
+    <span class="analysis">Analysis</span>
+  </h1>
+  <nav>
+    <button class="current" (click)="toLandingPage()">Home</button>
+    <button class="nav" (click)="toTest()">Strategy Tester</button>
+    <button class="nav" (click)="toBackTest()">Back Test</button>
+  </nav>
+  <input
+    type="text"
+    placeholder="Search stocks..."
+    id="searchInput"
+    (input)="searchStocks($event)"
+  />
+</header>
+<main class="main-content">
+  <aside class="sidebar">
+    <h2>Watchlist</h2>
+    <ul id="watchlist">
+      <li *ngFor="let stock of watchlist" (click)="selectStock(stock)">
+        {{ stock.symbol }}
+        <span
+          class="stock-status"
+          [ngStyle]="{ color: stock.change > 0 ? 'green' : 'red' }"
+        >
+          {{ stock.change }}
+        </span>
+      </li>
+    </ul>
+    <button class="button" id="addStock" (click)="addStock()">Add Stock</button>
+    <button class="button" id="logout" (click)="logout()">Log out</button>
+  </aside>
+
+  <!--Main-->
+  <div class="chart-container">
+    <div class="pattern-container">
+      <h2>{{ selectedStock.symbol }}</h2>
+      <div class="patterns">
+        <button [class.active]="isDojiActive" (click)="toggleDoji()">
+          Doji
+        </button>
+        <button [class.active]="isBullishActive" (click)="toggleBullish()">
+          Bullish
+        </button>
+        <button [class.active]="isHammerActive" (click)="toggleHammer()">
+          Hammer
+        </button>
+        <button [class.active]="isBabyActive" (click)="toggleBaby()">
+          Abandoned Baby
+        </button>
+      </div>
+    </div>
+    <div class="chart-placeholder">Stock chart placeholder</div>
+    <div>
+      <!--<select id="timeframe" [(ngModel)]="selectedTimeframe">
+          <option value="1d">1 Day</option>
+          <option value="1w">1 Week</option>
+          <option value="1m">1 Month</option>
+          <option value="1y">1 Year</option>
+        </select>-->
+      <label for="startDate">Start Date:</label>
+      <input
+        type="date"
+        id="startDate"
+        [(ngModel)]="startDate"
+        (change)="updateChart()"
+      />
+      <label for="endDate">End Date:</label>
+      <input
+        type="date"
+        id="endDate"
+        [(ngModel)]="endDate"
+        (change)="updateChart()"
+      />
+      <button class="button" (click)="toggleIndicator('SMA')">SMA</button>
+      <button class="button" (click)="toggleIndicator('EMA')">EMA</button>
+      <button class="button" (click)="toggleIndicator('MACD')">MACD</button>
+    </div>
+  </div>
+
+  <article>
+    <div class="card">
+      <h2>Stock Information</h2>
+      <dl id="stockInfo">
+        <ng-container *ngFor="let item of stockData | keyvalue">
+          <div class="stock-data-article">
+            {{ item.key | titlecase }}:
+            <span class="item-value">{{ item.value }}</span>
+          </div>
+        </ng-container>
+      </dl>
+    </div>
+    <div class="card">
+      <h2>Technical Indicators</h2>
+      <span>Momentum</span>
+      <ul>
+        <li *ngFor="let indicator of technicalIndicators.momentum">
+          {{ indicator.name }}: {{ indicator.value }}
+        </li>
+      </ul>
+      <span>Indicator</span>
+      <ul>
+        <li *ngFor="let indicator of technicalIndicators.trend">
+          {{ indicator.name }}: {{ indicator.value }}
+        </li>
+      </ul>
+      <span>Volatility</span>
+      <ul>
+        <li *ngFor="let indicator of technicalIndicators.volatility">
+          {{ indicator.name }}: {{ indicator.value }}
+        </li>
+      </ul>
+    </div>
+  </article>
+</main>

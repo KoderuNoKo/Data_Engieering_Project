@@ -1,0 +1,209 @@
+<header class="header">
+  <h1>
+    <span class="stock">Stock </span>
+    <span class="analysis">Analysis</span>
+  </h1>
+  <nav>
+    <button class="nav" (click)="toLandingPage()">Home</button>
+    <button class="current" (click)="toTest()">Strategy Tester</button>
+    <button class="nav" (click)="toBackTest()">Back Test</button>
+  </nav>
+</header>
+
+<div class="strategy-card">
+  <h2>Strategy Define</h2>
+  <input
+    [(ngModel)]="strategyName"
+    placeholder="What do you want to call your strategy?"
+    class="strategy-name-input"
+  />
+
+  <div class="conditions-container">
+    <!-- Entry Conditions -->
+    <div class="condition-section">
+      <h3>Entry condition</h3>
+      <div class="period-inputs">
+        <label>
+          <span>Size percentage</span>
+          <input
+            type="number"
+            [(ngModel)]="exitConditions.sizePercent"
+            placeholder="Enter period"
+          />
+        </label>
+        <label>
+          <span>Stop loss</span>
+          <input
+            type="number"
+            [(ngModel)]="exitConditions.stopLoss"
+            placeholder="Enter period"
+          />
+        </label>
+        <label>
+          <span>Take profit</span>
+          <input
+            type="number"
+            [(ngModel)]="exitConditions.takeProfit"
+            placeholder="Enter period"
+          />
+        </label>
+        <label>
+          <span>Position</span>
+          <select [(ngModel)]="exitConditions.position">
+            <option value="">Select position</option>
+            <option value="golden">Long</option>
+            <option value="death">Short</option>
+          </select>
+        </label>
+      </div>
+      <div class="condition-options">
+        <label>
+          <span>SMA</span>
+          <select [(ngModel)]="exitConditions.sma">
+            <option value="">Select crossover</option>
+            <option value="golden">Short-term period</option>
+            <option value="death">Long-term period</option>
+          </select>
+        </label>
+        <label>
+          <span>EMA</span>
+          <select [(ngModel)]="exitConditions.ema">
+            <option value="">Select crossover</option>
+            <option value="golden">Short-term period</option>
+            <option value="death">Long-term period</option>
+          </select>
+        </label>
+        <label>
+          <span>RSI</span>
+          <select [(ngModel)]="exitConditions.rsi">
+            <option value="">Select RSI condition</option>
+            <option value="overbought">RSI Overbought</option>
+            <option value="oversold">RSI Oversold</option>
+          </select>
+        </label>
+        <label>
+          <span>Price hit Bollinger Band</span>
+          <select [(ngModel)]="exitConditions.priceHit">
+            <option value="">Select pattern</option>
+            <option value="doji">Standard deviation</option>
+            <option value="hammer">MA Period</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <!-- Exit Conditions -->
+    <div class="condition-section">
+      <h3>Entry condition</h3>
+      <div class="period-inputs">
+        <label>
+          <span>Size percentage</span>
+          <input
+            type="number"
+            [(ngModel)]="exitConditions.sizePercent"
+            placeholder="Enter period"
+          />
+        </label>
+        <label>
+          <span>Stop loss</span>
+          <input
+            type="number"
+            [(ngModel)]="exitConditions.stopLoss"
+            placeholder="Enter period"
+          />
+        </label>
+        <label>
+          <span>Take profit</span>
+          <input
+            type="number"
+            [(ngModel)]="exitConditions.takeProfit"
+            placeholder="Enter period"
+          />
+        </label>
+        <label>
+          <span>Position</span>
+          <select [(ngModel)]="exitConditions.position">
+            <option value="">Select position</option>
+            <option value="golden">Long</option>
+            <option value="death">Short</option>
+          </select>
+        </label>
+      </div>
+      <div class="condition-options">
+        <label>
+          <span>SMA</span>
+          <select [(ngModel)]="exitConditions.sma">
+            <option value="">Select crossover</option>
+            <option value="golden">Short-term period</option>
+            <option value="death">Long-term period</option>
+          </select>
+        </label>
+        <label>
+          <span>EMA</span>
+          <select [(ngModel)]="exitConditions.ema">
+            <option value="">Select crossover</option>
+            <option value="golden">Short-term period</option>
+            <option value="death">Long-term period</option>
+          </select>
+        </label>
+        <label>
+          <span>RSI</span>
+          <select [(ngModel)]="exitConditions.rsi">
+            <option value="">Select RSI condition</option>
+            <option value="overbought">RSI Overbought</option>
+            <option value="oversold">RSI Oversold</option>
+          </select>
+        </label>
+        <label>
+          <span>Price hit Bollinger Band</span>
+          <select [(ngModel)]="exitConditions.priceHit">
+            <option value="">Select pattern</option>
+            <option value="doji">Standard deviation</option>
+            <option value="hammer">MA Period</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Risk Management -->
+  <div class="risk-management">
+    <h3>Risk Management</h3>
+    <div class="risk-options">
+      <label>
+        <span>Stop loss</span>
+        <input
+          class="twoLastInput"
+          type="number"
+          [(ngModel)]="riskManagement.stopLoss"
+          placeholder="Enter stop loss %"
+        />
+      </label>
+      <label>
+        <span>Target profit (%)</span>
+        <input
+          class="twoLastInput"
+          type="number"
+          [(ngModel)]="riskManagement.risk"
+          placeholder="Enter target profit %"
+        />
+      </label>
+      <!--<label>
+        <span>Option 1</span>
+        <select [(ngModel)]="riskManagement.option1">
+          <option value="">Select option</option>
+          <option value="option1">Option 1</option>
+        </select>
+      </label>
+      <label>
+        <span>Option 2</span>
+        <select [(ngModel)]="riskManagement.option2">
+          <option value="">Select option</option>
+          <option value="option2">Option 2</option>
+        </select>
+      </label>-->
+    </div>
+  </div>
+
+  <button (click)="saveStrategy()" class="save-button">Save Strategy</button>
+</div>
