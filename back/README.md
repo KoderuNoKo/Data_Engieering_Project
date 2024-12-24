@@ -9,11 +9,7 @@ python -m venv <name>
 
 ### 2. Activate the virtual environment
 ```bash
-source <name>/Scripts/activate
-```
-or
-```bash
-source <name>/bin/activate
+<name>/Scripts/activate
 ```
 
 ### 3. Install the required packages
@@ -36,7 +32,7 @@ pip install -r requirements.txt
 
 ### 2. Activate the virtual environment 
 ```bash
-source venv/bin/activate
+back/Scripts/activate
 ```
 
 ### 3. Run the application
