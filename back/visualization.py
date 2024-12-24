@@ -1,8 +1,6 @@
 # for plotting graph
 import matplotlib.pyplot as plt
 import mplfinance as mpf
-import pandas as pd
-
 
 class Patterns:
     def __init__(self) -> None:
