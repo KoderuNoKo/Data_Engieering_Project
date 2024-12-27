@@ -1,0 +1,143 @@
+<header class="header">
+  <h1>
+    <span class="stock">Stock </span>
+    <span class="analysis">Analysis</span>
+  </h1>
+  <nav>
+    <button class="current" (click)="toLandingPage()">Home</button>
+    <button class="nav" (click)="toTest()">Strategy Tester</button>
+    <button class="nav" (click)="toBackTest()">Back Test</button>
+  </nav>
+  <input
+    type="text"
+    placeholder="Search stocks..."
+    id="searchInput"
+    (input)="searchStocks($event)"
+  />
+</header>
+<main class="main-content">
+  <aside class="sidebar">
+    <h2>Watchlist</h2>
+    <ul id="watchlist">
+      <li *ngFor="let stock of watchlist" (click)="selectStock(stock)">
+        {{ stock.symbol }}
+        <span
+          class="stock-status"
+          [ngStyle]="{ color: stock.change > 0 ? 'green' : 'red' }"
+        >
+          {{ stock.change }}
+        </span>
+      </li>
+    </ul>
+    <button class="button" id="addStock" (click)="addStock()">Add Stock</button>
+    <button class="button" id="logout" (click)="logout()">Log out</button>
+  </aside>
+
+  <!--Main-->
+  <div class="chart-container">
+    <div class="pattern-container">
+      <h2>{{ selectedStock.symbol }}</h2>
+    </div>
+    <div class="chart-placeholder">Stock chart placeholder</div>
+    <div class="ex">
+      <label for="startDate">Start Date:</label>
+      <input
+        type="date"
+        id="startDate"
+        [(ngModel)]="startDate"
+        (change)="updateChart()"
+      />
+      <label for="endDate">End Date:</label>
+      <input
+        type="date"
+        id="endDate"
+        [(ngModel)]="endDate"
+        (change)="updateChart()"
+      />
+      <label>
+        <select>
+          <option value="SMA">Hammer/Hanging Man</option>
+          <option value="EMA">Engulfing</option>
+          <option value="RSI">Doji/Spinning Top</option>
+          <option value="BBands">Abandoned Baby Top/Bottom</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <button
+        class="button"
+        [class.active]="activeButton === 'sma'"
+        (click)="setActiveButton('sma')"
+      >
+        SMA
+      </button>
+      <button
+        class="button"
+        [class.active]="activeButton === 'ema'"
+        (click)="setActiveButton('ema')"
+      >
+        EMA
+      </button>
+      <button
+        class="button"
+        [class.active]="activeButton === 'rsi'"
+        (click)="setActiveButton('rsi')"
+      >
+        RSI
+      </button>
+      <button
+        class="button"
+        [class.active]="activeButton === 'bbands'"
+        (click)="setActiveButton('bbands')"
+      >
+        BBands
+      </button>
+      <button
+        class="button"
+        [class.active]="activeButton === 'candle'"
+        (click)="setActiveButton('candle')"
+      >
+        Candlestick Pattern
+      </button>
+    </div>
+    <div class="input">
+      <input type="text" placeholder="Short Period" />
+      <input type="text" placeholder="Long Period" />
+    </div>
+  </div>
+
+  <article>
+    <div class="card">
+      <h2>Stock Information</h2>
+      <dl id="stockInfo">
+        <ng-container *ngFor="let item of stockData | keyvalue">
+          <div class="stock-data-article">
+            {{ item.key | titlecase }}:
+            <span class="item-value">{{ item.value }}</span>
+          </div>
+        </ng-container>
+      </dl>
+    </div>
+    <div class="card">
+      <h2>Technical Indicators</h2>
+      <span>Momentum</span>
+      <ul>
+        <li *ngFor="let indicator of technicalIndicators.momentum">
+          {{ indicator.name }}: {{ indicator.value }}
+        </li>
+      </ul>
+      <span>Indicator</span>
+      <ul>
+        <li *ngFor="let indicator of technicalIndicators.trend">
+          {{ indicator.name }}: {{ indicator.value }}
+        </li>
+      </ul>
+      <span>Volatility</span>
+      <ul>
+        <li *ngFor="let indicator of technicalIndicators.volatility">
+          {{ indicator.name }}: {{ indicator.value }}
+        </li>
+      </ul>
+    </div>
+  </article>
+</main>
