@@ -57,36 +57,34 @@ export class TestUiComponent {
     { value: 'candle1', label: 'Candlestick Graph Pattern'},
   ];
 
-  entryOptions: { value: string; label: string }[] = [];
+  firstEntryLabel = '';
+  secondEntryLabel = '';
+  firstExitLabel = '';
+  secondExitLabel = '';
 
   selectedEntryStrategy: 'gc' | 'rsi1' | 'candle1' | '' = '';
 
 
   allEntryOptions = {
     gc: {
-      options: [
-        {value: '1', label: 'Short-term Period'},
-        {value: '2', label: 'Long-term Period'}
-      ]
+      firstEntryLabel: 'Short-term Period',
+      secondEntryLabel: 'Long-term Period'
     },
     rsi1: {
-      options: [
-        {value: '1', label: 'Overbought threshold'},
-        {value: '2', label: 'Oversold threshold'}
-      ]
+      firstEntryLabel: 'Overbought threshold',
+      secondEntryLabel: 'Oversold threshold'
     },
     candle1: {
-      options: [
-        {value: '1', label: 'Standard deviation'},
-        {value: '2', label: 'MA Period'}
-      ]
+      firstEntryLabel: 'Standard deviation',
+      secondEntryLabel: 'MA Period'
     }
   }
 
   onEntryChange() {
     if (this.selectedEntryStrategy && this.allEntryOptions[this.selectedEntryStrategy]) {
       const selectedOption = this.allEntryOptions[this.selectedEntryStrategy];
-      this.entryOptions = selectedOption.options
+      this.firstEntryLabel = selectedOption.firstEntryLabel;
+      this.secondEntryLabel = selectedOption.secondEntryLabel;
     }
   };
 
@@ -96,36 +94,29 @@ export class TestUiComponent {
     { value: 'candle2', label: 'Candlestick Graph Pattern'},
   ];
 
-  exitOptions: { value: string; label: string }[] = [];
-
   selectedExitStrategy: 'dc' | 'rsi2' | 'candle2' | '' = '';
 
 
   allExitOptions = {
     dc: {
-      options: [
-        {value: '1', label: 'Short-term Period'},
-        {value: '2', label: 'Long-term Period'}
-      ]
+      firstExitLabel: 'Short-term Period',
+      secondExitLabel: 'Long-term Period'
     },
     rsi2: {
-      options: [
-        {value: '1', label: 'Overbought threshold'},
-        {value: '2', label: 'Oversold threshold'}
-      ]
+      firstExitLabel: 'Overbought threshold',
+      secondExitLabel: 'Oversold threshold'
     },
     candle2: {
-      options: [
-        {value: '1', label: 'Standard deviation'},
-        {value: '2', label: 'MA Period'}
-      ]
+      firstExitLabel: 'Standard deviation',
+      secondExitLabel: 'MA Period'
     }
-  }
+  };
 
   onExitChange() {
     if (this.selectedExitStrategy && this.allExitOptions[this.selectedExitStrategy]) {
       const selectedExitOption = this.allExitOptions[this.selectedExitStrategy];
-      this.exitOptions = selectedExitOption.options
+      this.firstExitLabel = selectedExitOption.firstExitLabel;
+      this.secondExitLabel = selectedExitOption.secondExitLabel;
     }
   }
 

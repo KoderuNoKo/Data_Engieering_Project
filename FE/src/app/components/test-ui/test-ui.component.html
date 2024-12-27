@@ -73,12 +73,20 @@
           </select>
         </label>
         <label>
-          <span>Select Index</span>
-          <select>
-            <option *ngFor="let option of entryOptions" [value]="option.value">
-              {{ option.label }}
-            </option>
-          </select>
+          <span>{{ firstEntryLabel }}</span>
+          <input
+            type="text"
+            [(ngModel)]="exitConditions.takeProfit"
+            placeholder="Enter {{ firstEntryLabel }}"
+          />
+        </label>
+        <label>
+          <span>{{ secondEntryLabel }}</span>
+          <input
+            type="text"
+            [(ngModel)]="exitConditions.takeProfit"
+            placeholder="Enter {{ secondEntryLabel }}"
+          />
         </label>
       </div>
     </div>
@@ -122,7 +130,7 @@
       </div>
       <div class="condition-options">
         <label>
-          <span>Choose Entry condition</span>
+          <span>Choose Exit condition</span>
           <select [(ngModel)]="selectedExitStrategy" (change)="onExitChange()">
             <option
               *ngFor="let option of exitStrategyChoice"
@@ -133,12 +141,20 @@
           </select>
         </label>
         <label>
-          <span>Select Index</span>
-          <select>
-            <option *ngFor="let option of exitOptions" [value]="option.value">
-              {{ option.label }}
-            </option>
-          </select>
+          <span>{{ firstExitLabel }}</span>
+          <input
+            type="text"
+            [(ngModel)]="exitConditions.takeProfit"
+            placeholder="Enter {{ firstExitLabel }}"
+          />
+        </label>
+        <label>
+          <span>{{ secondExitLabel }}</span>
+          <input
+            type="text"
+            [(ngModel)]="exitConditions.takeProfit"
+            placeholder="Enter {{ secondExitLabel }}"
+          />
         </label>
       </div>
     </div>
