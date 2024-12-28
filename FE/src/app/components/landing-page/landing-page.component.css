@@ -191,7 +191,7 @@ input[type="date"]:focus {
 }
 
 .chart-placeholder {
-    height: 65%;
+    height: 60%;
     background-color: var(--bg-light);
     display: flex;
     justify-content: center;
