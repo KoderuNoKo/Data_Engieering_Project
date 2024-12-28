@@ -73,7 +73,6 @@ header input{
     margin-top: 1rem;
     display: flex;
     gap: 10px;
-    flex-grow: 1;
   }
 
   aside {
@@ -116,9 +115,8 @@ header input{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
-    margin-top: 4px;
-    margin-right: 10px;
+    font-size: 10px;
+    margin-right: 20px;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s;
@@ -134,7 +132,6 @@ header input{
     border: 1px solid var(--bg-light, #ccc);
     border-radius: 4px;
     padding: 15px;
-    height: auto;
   }
 
   article {
@@ -176,8 +173,8 @@ ul {
 input[type="date"] {
     border: 1px solid #ccc; /* Đường viền */
     border-radius: 4px; /* Bo góc */
-    padding: 8px; /* Khoảng cách bên trong */
-    font-size: 16px; /* Kích thước chữ */
+    padding: 4px; /* Khoảng cách bên trong */
+    font-size: 12px; /* Kích thước chữ */
     margin-right: 10px; /* Khoảng cách bên phải */
     width: 150px; /* Chiều rộng */
 }
@@ -189,7 +186,8 @@ input[type="date"]:focus {
 }
 
 .ex{
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
+    gap: 5rem;
 }
 
 .chart-placeholder {
@@ -200,7 +198,7 @@ input[type="date"]:focus {
     align-items: center;
     font-style: italic;
     color: var(--text-dim);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .tabs {
@@ -252,6 +250,14 @@ input, select {
     gap: 10px; /* Thêm khoảng cách giữa các input */
     margin-top: 10px;
 }
+.input {
+    margin: 0.7rem 0rem;
+    gap: 2.5rem;
+}
+
 .input input {
     height: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
 }

@@ -54,14 +54,6 @@
         [(ngModel)]="endDate"
         (change)="updateChart()"
       />
-      <label>
-        <select>
-          <option value="SMA">Hammer/Hanging Man</option>
-          <option value="EMA">Engulfing</option>
-          <option value="RSI">Doji/Spinning Top</option>
-          <option value="BBands">Abandoned Baby Top/Bottom</option>
-        </select>
-      </label>
     </div>
     <div>
       <button
@@ -92,6 +84,12 @@
       >
         BBands
       </button>
+    </div>
+    <div class="input">
+      <input type="text" placeholder="Short Period" />
+      <input type="text" placeholder="Long Period" />
+    </div>
+    <div>
       <button
         class="button"
         [class.active]="activeButton === 'candle'"
@@ -99,10 +97,14 @@
       >
         Candlestick Pattern
       </button>
-    </div>
-    <div class="input">
-      <input type="text" placeholder="Short Period" />
-      <input type="text" placeholder="Long Period" />
+      <label>
+        <select>
+          <option value="SMA">Hammer/Hanging Man</option>
+          <option value="EMA">Engulfing</option>
+          <option value="RSI">Doji/Spinning Top</option>
+          <option value="BBands">Abandoned Baby Top/Bottom</option>
+        </select>
+      </label>
     </div>
   </div>
 
