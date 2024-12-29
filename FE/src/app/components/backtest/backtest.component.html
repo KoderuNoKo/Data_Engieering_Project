@@ -62,6 +62,25 @@
 
         <div class="strategy-item">
           <h4>Exit condition</h4>
+          <p>Death Cross</p>
+          <div class="period-settings">
+            <div class="period">
+              <label>Short period</label>
+              <input
+                type="number"
+                [(ngModel)]="selectedStrategy.shortPeriod"
+                class="period-input"
+              />
+            </div>
+            <div class="period">
+              <label>Long period</label>
+              <input
+                type="number"
+                [(ngModel)]="selectedStrategy.longPeriod"
+                class="period-input"
+              />
+            </div>
+          </div>
           <!-- Add exit condition content -->
         </div>
 

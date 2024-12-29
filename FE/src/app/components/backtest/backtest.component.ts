@@ -24,7 +24,8 @@ export class BacktestComponent implements OnInit {
     entryCondition: 'Golden Cross (MA Crossover)',
     shortPeriod: 20,
     longPeriod: 50,
-    stopLoss: 1
+    stopLoss: 1,
+    deathCross: 1
   };
 
   // Calendar data
