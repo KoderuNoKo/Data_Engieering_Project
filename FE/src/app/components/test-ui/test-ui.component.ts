@@ -54,7 +54,7 @@ export class TestUiComponent {
   entryStrategyChoice = [
     { value: 'gc', label: 'Golden Cross (MA Crossover)'},
     { value: 'rsi1', label: 'RSI Overbought'},
-    { value: 'candle1', label: 'Candlestick Graph Pattern'},
+    { value: 'candle1', label: 'Price hit Bollinger Band'},
   ];
 
   firstEntryLabel = '';
@@ -91,7 +91,7 @@ export class TestUiComponent {
   exitStrategyChoice = [
     { value: 'dc', label: 'Death Cross (MA Crossover)'},
     { value: 'rsi2', label: 'RSI Overbought'},
-    { value: 'candle2', label: 'Candlestick Graph Pattern'},
+    { value: 'candle2', label: 'Price hit Bollinger Band'},
   ];
 
   selectedExitStrategy: 'dc' | 'rsi2' | 'candle2' | '' = '';
